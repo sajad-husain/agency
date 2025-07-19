@@ -1,0 +1,62 @@
+/* Shooting Stars Effect for SuccessStories */
+.stars {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 120vh;
+  transform: rotate(-45deg);
+  pointer-events: none;
+  z-index: 0;
+}
+.star {
+  position: absolute;
+  width: 6em;
+  height: 2px;
+  background: linear-gradient(45deg, white, transparent);
+  border-radius: 50%;
+  filter: drop-shadow(0 0 6px white);
+  animation: fall linear infinite, tail-fade ease-out infinite;
+}
+.star::before,
+.star::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -0.5em;
+  width: 1em;
+  height: 100%;
+  background: linear-gradient(45deg, transparent, white, transparent);
+  border-radius: inherit;
+  animation: blink 2s linear infinite;
+}
+.star::before {
+  transform: rotate(45deg);
+}
+.star::after {
+  transform: rotate(-45deg);
+}
+@keyframes fall {
+  to {
+    transform: translate3d(-130em, 0, 0);
+  }
+}
+@keyframes tail-fade {
+  0%, 50% {
+    width: 6em;
+    opacity: 1;
+  }
+  70%, 80% {
+    width: 0;
+    opacity: 0.4;
+  }
+  100% {
+    width: 0;
+    opacity: 0;
+  }
+}
+@keyframes blink {
+  50% {
+    opacity: 0.6;
+  }
+}

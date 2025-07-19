@@ -1,0 +1,26 @@
+.quotes-swiper {
+  position: relative;
+}
+.quotes-swiper .swiper-pagination {
+  position: static !important;
+  margin-top: 2.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+.quotes-swiper .swiper-pagination-bullet {
+  width: 10px;
+  height: 10px;
+  background: rgba(255,255,255,0.4);
+  opacity: 1;
+  margin: 0 6px !important;
+}
+
+
+.quotes-swiper .swiper-pagination-bullet-active {
+  width: 24px;
+  border-radius: 5px;
+  background: linear-gradient(to right, #ffffff, #A6CCFF);
+}

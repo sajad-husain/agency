@@ -1,0 +1,32 @@
+.customPhoneInput {
+  display: flex;
+  align-items: center;
+  background: #23252C;
+  border: 1px solid #3A3C4A;
+  border-radius: 0.5rem;
+  padding: 0.15rem 0.5rem;
+  gap: 0.5rem;
+}
+
+.react-international-phone-country-selector {
+  background: #23252C !important;
+  border: none !important;
+  border-radius: 0.5rem !important;
+  padding: 0.35rem 0.7rem 0.35rem 0.5rem !important;
+  display: flex;
+  align-items: center;
+}
+
+.react-international-phone-country-selector__flag {
+  margin-right: 0.4rem;
+}
+
+.input {
+  flex: 1;
+  background: transparent;
+  border: none;
+  color: #e5e5e5;
+  font-size: 15px;
+  padding: 0.7rem 0.5rem;
+  outline: none;
+}

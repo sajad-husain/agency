@@ -1,0 +1,17 @@
+.swiper-pagination {
+    display: flex;
+    justify-content: center;
+  }
+  .swiper-pagination-bullet {
+    width: 18px;
+    height: 5px;
+    border-radius: 0;
+    background-color: rgba(164, 240, 247, 1);
+    border-radius: 15px;
+    transition: all 0.7s;
+  }
+  .swiper-pagination-bullet-active {
+    width: 56px;
+    background-color: rgb(38, 140, 224);
+    transition: all 0.7s;
+  }

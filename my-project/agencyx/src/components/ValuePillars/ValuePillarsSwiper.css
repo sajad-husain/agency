@@ -1,0 +1,14 @@
+.Pillarsgroup:hover h3,
+.Pillarsgroup:hover .text-sm,
+.Pillarsgroup:hover .text-xs {
+  color: #2772ec !important; 
+  transition: color 0.5s;
+}
+
+.Pillarsgroup:hover .text-xs {
+  color: #fcfcfc !important; 
+}
+
+.Pillarsgroup:hover .text-sm {
+  color: #ffffff !important; 
+}

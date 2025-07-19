@@ -1,0 +1,19 @@
+.founder-card {
+  box-shadow: 0px 0px 0px rgba(0,0,0,0);
+  transition: box-shadow 0.3s;
+}
+.founder-card-green:hover, .founder-card-green:focus {
+  box-shadow: 10px 10px 50px rgba(74,222,128,0.4);
+}
+.founder-card-blue:hover, .founder-card-blue:focus {
+  box-shadow: 10px 10px 50px rgba(97,197,243,0.4);
+}
+.founder-card-yellow:hover, .founder-card-yellow:focus {
+  box-shadow: 10px 10px 50px rgba(255,215,0,0.4);
+}
+.founder-card-purple:hover, .founder-card-purple:focus {
+  box-shadow: 10px 10px 50px rgba(128,0,128,0.4);
+}
+
+
+

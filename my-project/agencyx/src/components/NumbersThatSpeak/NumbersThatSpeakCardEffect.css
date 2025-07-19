@@ -1,0 +1,81 @@
+.card {
+  position: relative;
+  width: 300px;
+  height: 150px;
+  background-color: #111;
+  padding: 20px;
+  border-radius: 12px;
+  z-index: 1;
+  color: #fff;
+  overflow: hidden;
+}
+
+/* BORDER GLOW + RENK GEÇİŞİ */
+.card::before {
+  content: "";
+  position: absolute;
+  top: -16px;
+  left: -16px;
+  right: -16px;
+  bottom: -16px;
+  background: linear-gradient(
+    45deg,
+    #fb0094,
+    #00f,
+    #0f0,
+    #ff0,
+    #f00,
+    #fb0094,
+    #00f,
+    #0f0,
+    #ff0,
+    #f00
+  );
+  background-size: 400%;
+  z-index: -1;
+  border-radius: 16px;
+  animation: animate 20s linear infinite;
+  opacity: 0;
+  transition: opacity 0.5s;
+  
+  /* Glow efekti burada! */
+  filter: blur(8px);
+  box-shadow: 0 0 20px rgba(255, 0, 255, 0.5),
+              0 0 40px rgba(0, 255, 255, 0.3),
+              0 0 60px rgba(255, 255, 0, 0.2);
+}
+
+/* İç layer – içerik arka planı */
+.card::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: #111;
+  border-radius: 12px;
+  z-index: -1;
+  width: 99%;
+  height: 99%;
+  margin: auto;
+}
+
+/* Hover olunca efekt aktif */
+.card:hover::before {
+  opacity: 1;
+}
+
+@keyframes animate {
+  0% {
+    background-position: 0 0;
+  }
+  50% {
+    background-position: 300% 0;
+  }
+  100% {
+    background-position: 0 0;
+  }
+}
+
+

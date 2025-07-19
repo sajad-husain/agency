@@ -1,0 +1,9 @@
+.ScenarioCard:hover h3 {
+    color: rgb(123, 242, 123);
+}
+
+.ScenarioCard:hover p {
+    color: rgb(206, 206, 206);
+}
+
+
