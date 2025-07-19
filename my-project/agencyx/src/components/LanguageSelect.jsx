@@ -1,10 +1,8 @@
-'use client'
-import { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import Loader from '../components/Loader';
-import { useRouter, usePathname } from 'next/navigation';
-import Image from 'next/image';
-import flagEng from "../public/langs/flagEng.png";
-import flagTur from "../public/langs/flagTr.png";
+// Import images from src/assets or use public folder paths
+import flagEng from '../assets/langs/flagEng.png';
+import flagTur from '../assets/langs/flagTr.png';
 
 const languages = [
   { code: 'en', name: 'EN', flag: flagEng },
@@ -13,20 +11,32 @@ const languages = [
 
 export default function LanguageSelect() {
   const [loading, setLoading] = useState(false);
-  const pathname = usePathname();
   const [selected, setSelected] = useState(languages[0]);
   const [isOpen, setIsOpen] = useState(false);
-  const router = useRouter();
-
 
   useEffect(() => {
-    if (!pathname) return;
+    if (typeof window === 'undefined') return;
+    const pathname = window.location.pathname;
     const match = pathname.match(/^\/(en|tr)(\/|$)/);
     const langCode = match ? match[1] : 'en';
-    setSelected(languages[langCode === 'tr' ? 1 : 0]);
-  }, [pathname]);
+    setSelected(languages.find(lang => lang.code === langCode) || languages[0]);
+  }, []);
 
   if (loading) return <Loader />;
+
+  const handleLanguageSelect = (lang) => {
+    setSelected(lang);
+    setIsOpen(false);
+    setLoading(true);
+    // Navigate to the language root — full reload
+    if (lang.code === 'en') {
+      window.location.href = '/en';
+    } else if (lang.code === 'tr') {
+      window.location.href = '/tr';
+    }
+    // Optional: stop loading after a delay
+    setTimeout(() => setLoading(false), 1500);
+  };
 
   return (
     <div className="relative inline-block ml-4 w-24">
@@ -35,7 +45,7 @@ export default function LanguageSelect() {
         onClick={() => setIsOpen(!isOpen)}
       >
         <div className="flex items-center gap-2">
-          <Image src={selected.flag} alt={selected.name} width={20} height={14} />
+          <img src={selected.flag} alt={selected.name} width={20} height={14} />
           {selected.name}
         </div>
         <span>▼</span>
@@ -46,21 +56,10 @@ export default function LanguageSelect() {
           {languages.map((lang) => (
             <button
               key={lang.code}
-              onClick={() => {
-                setSelected(lang);
-                setIsOpen(false);
-                setLoading(true);
-                if (lang.code === 'en') {
-                  router.push('/en');
-                } else if (lang.code === 'tr') {
-                  router.push('/tr');
-                }
-                // Router push sonrası loading'i kapatmak için küçük bir gecikme
-                setTimeout(() => setLoading(false), 1500);
-              }}
+              onClick={() => handleLanguageSelect(lang)}
               className={`flex items-center gap-2 w-full px-2 py-1 bg-black text-white ${selected.code === lang.code ? 'font-bold' : ''}`}
             >
-              <Image src={lang.flag} alt={lang.name} width={20} height={14} />
+              <img src={lang.flag} alt={lang.name} width={20} height={14} />
               {lang.name}
             </button>
           ))}
@@ -69,4 +68,3 @@ export default function LanguageSelect() {
     </div>
   );
 }
-

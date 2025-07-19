@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { CiMenuFries } from 'react-icons/ci';
 import { IoMdClose } from 'react-icons/io';
 
-import GasLogo from '../../../public/'; //gas logo // This may not work in CRA, see note below
+import GasLogo from '../../assets/GasLogo.png'; //gas logo // This may not work in CRA, see note below
 import LanguageSelect from '../LanguageSelect';
 import navbarText from './navbarText';
 
@@ -26,7 +26,7 @@ const Navbar = () => {
           {/* Logo */}
           <a href="/en" className="flex items-center gap-2">
             {/* In React, use <img> tag */}
-            <img src="/GasLogo.png" alt="GAS Logo" width={107} height={36} />
+            <img src={GasLogo} alt="GAS Logo" width={107} height={36} />
           </a>
           <div className="flex flex-row items-center gap-16">
             {/* Menu */}
