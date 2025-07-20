@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
+import flagEng from "../assets/langs/flagEng.png";
+import flagTur from "../assets/langs/flagTr.png";
 import Loader from '../components/Loader';
-import flagEng from '../assets/langs/flagEng.png';
-import flagTur from '../assets/langs/flagTr.png';
+import { useLocation, useNavigate } from 'react-router-dom';
 
 const languages = [
   { code: 'en', name: 'EN', flag: flagEng },
@@ -13,27 +14,31 @@ export default function LanguageSelect() {
   const [selected, setSelected] = useState(languages[0]);
   const [isOpen, setIsOpen] = useState(false);
 
+  const location = useLocation();
+  const navigate = useNavigate();
+
   useEffect(() => {
-    if (typeof window === 'undefined') return;
-    const pathname = window.location.pathname;
+    const pathname = location.pathname;
     const match = pathname.match(/^\/(en|tr)(\/|$)/);
     const langCode = match ? match[1] : 'en';
     setSelected(languages.find(lang => lang.code === langCode) || languages[0]);
-  }, []);
+  }, [location.pathname]);
 
   if (loading) return <Loader />;
 
-  const handleLanguageSelect = (lang) => {
+  const handleLanguageChange = (lang) => {
     setSelected(lang);
     setIsOpen(false);
     setLoading(true);
-    // Navigate to the language root — full reload
+
+    // Navigate to the language route
     if (lang.code === 'en') {
-      window.location.href = '/en';
+      navigate('/en');
     } else if (lang.code === 'tr') {
-      window.location.href = '/tr';
+      navigate('/tr');
     }
-    // Optional: stop loading after a delay
+
+    // Small delay to simulate loading
     setTimeout(() => setLoading(false), 1500);
   };
 
@@ -55,7 +60,7 @@ export default function LanguageSelect() {
           {languages.map((lang) => (
             <button
               key={lang.code}
-              onClick={() => handleLanguageSelect(lang)}
+              onClick={() => handleLanguageChange(lang)}
               className={`flex items-center gap-2 w-full px-2 py-1 bg-black text-white ${selected.code === lang.code ? 'font-bold' : ''}`}
             >
               <img src={lang.flag} alt={lang.name} width={20} height={14} />

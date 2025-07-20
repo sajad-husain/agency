@@ -1,6 +1,3 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
 import './App.css'
 import Navbar from './components/Navbar/Navbar'
 import ValuePillars from './components/ValuePillars/ValuePillars.jsx'
@@ -18,28 +15,31 @@ import Footer from './components/Footer/Footer.jsx'
 import MatrixRainEffect from './components/Hero/MatrixRainEffect'
 import Hero from './components/Hero/Hero'
 import { LanguageProvider } from "./context/LanguageContext.jsx"
+import { BrowserRouter } from 'react-router-dom'
 
 function App() {
 
   return (
     <>
-      <LanguageProvider defaultLang='en'>
-        <MatrixRainEffect />
-        <Hero lang='en' />
-        <Navbar lang='en' />
-        <ValuePillars lang='en' />
-        <NumbersThatSpeak lang="en" />
-        <ChooseScenario lang="en" />
-        <ExperiencePlatform lang="en" />
-        <DataTools lang="en" />
-        <SpecificSolutions lang="en" />
-        <Quotes lang="en" />
-        <SuccessStories lang="en" />
-        <Registration lang="en" />
-        <Founders lang="en" />
-        <DemoStartButtons lang="en" />
-        <Footer lang="en" />
-      </LanguageProvider>
+      <BrowserRouter>
+        <LanguageProvider defaultLang='en'>
+          <MatrixRainEffect />
+          <Hero lang='en' />
+          <Navbar lang='en' />
+          <ValuePillars lang='en' />
+          <NumbersThatSpeak lang="en" />
+          <ChooseScenario lang="en" />
+          <ExperiencePlatform lang="en" />
+          <DataTools lang="en" />
+          <SpecificSolutions lang="en" />
+          <Quotes lang="en" />
+          <SuccessStories lang="en" />
+          <Registration lang="en" />
+          <Founders lang="en" />
+          <DemoStartButtons lang="en" />
+          <Footer lang="en" />
+        </LanguageProvider>
+      </BrowserRouter>
     </>
   )
 }
