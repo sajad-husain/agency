@@ -1,12 +1,11 @@
 import React from 'react'
-import Image from 'next/image'
 import { IoGitMergeOutline, IoStatsChart } from 'react-icons/io5';
-import { GiSpeedometer } from 'react-icons/gi'; 
-import { RiChatVoiceAiLine } from 'react-icons/ri'; 
+import { GiSpeedometer } from 'react-icons/gi';
+import { RiChatVoiceAiLine } from 'react-icons/ri';
 import './ChooseScenario.css';
 import chooseScenarioText from './ChooseScenarioText';
 
-const page = ({lang}) => {
+const page = ({ lang }) => {
   return (
     <section id="about" className="flex flex-col items-center justify-start py-8 md:py-12 xl:py-24 px-1 sm:px-2 md:px-4 bg-black gap-2 sm:gap-4 md:gap-6 lg:gap-12">
 
@@ -14,9 +13,9 @@ const page = ({lang}) => {
       <h2
         className="text-2xl sm:text-3xl md:text-4xl font-light text-center leading-tight mb-4 bg-gradient-to-r from-white to-[#659BFF] bg-clip-text text-transparent"
       >
-         {chooseScenarioText.title[lang]}
+        {chooseScenarioText.title[lang]}
       </h2>
-      
+
       <div className="w-full max-w-6xl px-4 flex flex-col md:flex-row gap-4">
         {/* Sol Kolon */}
         <div className="w-full md:w-1/2 flex flex-col gap-4">
@@ -38,7 +37,7 @@ const page = ({lang}) => {
                 </p>
               </div>
               <div className="flex-grow flex items-center justify-center overflow-hidden w-full">
-                <Image
+                <img
                   src="/ChooseScenario/HotelCard.svg"
                   alt="Hotel Scenario"
                   width={320}
@@ -101,7 +100,7 @@ const page = ({lang}) => {
                 </p>
               </div>
               <div className="flex-grow flex items-end justify-center overflow-hidden w-full pb-2">
-                <Image
+                <img
                   src="/ChooseScenario/FinanceCard.svg"
                   alt="Finance Scenario"
                   width={320}

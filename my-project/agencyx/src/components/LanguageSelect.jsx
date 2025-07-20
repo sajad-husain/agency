@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import Loader from '../components/Loader';
-// Import images from src/assets or use public folder paths
 import flagEng from '../assets/langs/flagEng.png';
 import flagTur from '../assets/langs/flagTr.png';
 

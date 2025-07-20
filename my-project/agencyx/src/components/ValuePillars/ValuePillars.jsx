@@ -5,8 +5,9 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import { Pagination, Navigation } from 'swiper/modules';
 import 'swiper/css';
 import 'swiper/css/pagination';
-import '../ValuePillars/ValuePillarsSwiper.css';  
-import { valuePillarsText } from '../ValuePillars/ValuePillarsText';
+import '../ValuePillars/ValuePillarsSwiper.css';
+import { valuePillarsText } from './ValuePillarsText';
+
 
 const cardData = [
   {
@@ -31,7 +32,7 @@ const cardData = [
 
 
 
-const page = ( {lang} ) => {
+const page = ({ lang }) => {
   const swiperRef = useRef(null);
 
   return (
@@ -71,7 +72,7 @@ const page = ( {lang} ) => {
             <SwiperSlide key={idx} className="flex Pillarsgroup justify-center">
               <div
                 className="flex-1 bg-black border border-[#273043] rounded-xl py-6 md:py-8 flex flex-col shadow-sm shadow-gray-800 max-w-xs min-w-[300px] md:max-w-md mx-auto relative overflow-hidden transition-all duration-500 h-[516px] w-[300px] sm:w-[400px]"
-                
+
               >
                 {/* Glow Effect */}
                 <div className="absolute left-0 top-0 w-2/3 h-2/3 pointer-events-none z-0"
@@ -93,7 +94,7 @@ const page = ( {lang} ) => {
               </div>
             </SwiperSlide>
           ))}
-          
+
         </Swiper>
         {/* Custom pagination dots under the cards */}
         <div className="custom-swiper-pagination flex justify-center mt-6" />
